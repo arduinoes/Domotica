@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Arduino | Domótica con ESP32</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Nivel principiantes">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/domotica/assets/css/0.styles.44847de5.css" as="style"><link rel="preload" href="/domotica/assets/js/app.719536f2.js" as="script"><link rel="preload" href="/domotica/assets/js/2.c5d8ba43.js" as="script"><link rel="preload" href="/domotica/assets/js/8.f9851d9e.js" as="script"><link rel="prefetch" href="/domotica/assets/js/10.5146916a.js"><link rel="prefetch" href="/domotica/assets/js/11.2b5ff778.js"><link rel="prefetch" href="/domotica/assets/js/12.f52a9f9c.js"><link rel="prefetch" href="/domotica/assets/js/3.efeeb054.js"><link rel="prefetch" href="/domotica/assets/js/4.09b76e67.js"><link rel="prefetch" href="/domotica/assets/js/5.7b136afe.js"><link rel="prefetch" href="/domotica/assets/js/6.b3bbdb2e.js"><link rel="prefetch" href="/domotica/assets/js/7.deb7cf06.js"><link rel="prefetch" href="/domotica/assets/js/9.7d52f033.js">
+    <link rel="stylesheet" href="/domotica/assets/css/0.styles.44847de5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/domotica/" class="home-link router-link-active"><!----> <span class="site-name">Domótica con ESP32</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/domotica/hardware/" class="nav-link">
+  Hardware
+</a></div><div class="nav-item"><a href="/domotica/arduino/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Arduino
+</a></div><div class="nav-item"><a href="/domotica/button/" class="nav-link">
+  Botón
+</a></div><div class="nav-item"><a href="/domotica/interruptor/" class="nav-link">
+  Interruptor
+</a></div><div class="nav-item"><a href="https://www.youtube.com/watch?v=dZ59MDPcrqo&amp;list=PLgh8bcLDakt3KLia5B5ZIEbvhxp41EPiE" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Canal Youtube
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/domotica/hardware/" class="nav-link">
+  Hardware
+</a></div><div class="nav-item"><a href="/domotica/arduino/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Arduino
+</a></div><div class="nav-item"><a href="/domotica/button/" class="nav-link">
+  Botón
+</a></div><div class="nav-item"><a href="/domotica/interruptor/" class="nav-link">
+  Interruptor
+</a></div><div class="nav-item"><a href="https://www.youtube.com/watch?v=dZ59MDPcrqo&amp;list=PLgh8bcLDakt3KLia5B5ZIEbvhxp41EPiE" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Canal Youtube
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Arduino</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/domotica/arduino/#bibliotecas" class="sidebar-link">Bibliotecas</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/domotica/arduino/#asignar-pines" class="sidebar-link">Asignar pines</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/domotica/arduino/#definir-variables" class="sidebar-link">Definir variables</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/domotica/arduino/#funcion-void-setup" class="sidebar-link">Función -&gt; void setup()</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/domotica/arduino/#funcion-void-loop" class="sidebar-link">Función -&gt; void loop()</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="arduino"><a href="#arduino" class="header-anchor">#</a> Arduino</h1> <h2 id="bibliotecas"><a href="#bibliotecas" class="header-anchor">#</a> Bibliotecas</h2> <p>Skecht</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token comment">//  Activa la base de datos Supabase como RealTime en:</span>
+<span class="token comment">//  Database =&gt; Replication =&gt; Source =&gt; botón &quot;tables&quot; =&gt; activa la tabla</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;WiFi.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;HTTPClient.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;ArduinoJson.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;DHT.h&quot;</span></span>
+ 
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;supabaseAPI.hpp&quot;</span></span>
+ 
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">RELE1PIN</span> <span class="token expression"><span class="token number">0</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">RELE2PIN</span> <span class="token expression"><span class="token number">22</span> </span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">RELE3PIN</span> <span class="token expression"><span class="token number">21</span> </span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">INTERRUPTOR1PIN</span> <span class="token expression"><span class="token number">2</span>  </span><span class="token comment">// Boton</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">INTERRUPTOR2PIN</span> <span class="token expression"><span class="token number">34</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">INTERRUPTOR3PIN</span> <span class="token expression"><span class="token number">33</span></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">DHTPIN</span> <span class="token expression"><span class="token number">23</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">DHTTYPE</span> <span class="token expression">DHT11</span></span>
+
+DHT <span class="token function">dht</span><span class="token punctuation">(</span>DHTPIN<span class="token punctuation">,</span> DHTTYPE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+bool estado_interruptor1_inicial <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+bool estado_interruptor1_anterior <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+bool estadoInterruptor2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+bool estadoInterruptor3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+bool state1<span class="token punctuation">;</span>
+bool state2<span class="token punctuation">;</span>
+bool state3<span class="token punctuation">;</span>
+
+<span class="token keyword">float</span> temp<span class="token punctuation">;</span>
+<span class="token keyword">float</span> hum<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> ssid <span class="token operator">=</span> <span class="token string">&quot;studio&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> password <span class="token operator">=</span>  <span class="token string">&quot;88888888&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">char</span> objetoJson<span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+String payload<span class="token punctuation">;</span> 
+
+<span class="token keyword">void</span> <span class="token function">baseDatos</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  String datos <span class="token operator">=</span> <span class="token function">GetById</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// OBTENEMOS LOS DATOS DE LA BASE DE DATOS</span>
+  
+  <span class="token keyword">char</span> documentoJson<span class="token punctuation">[</span><span class="token number">500</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        datos<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        datos<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        datos<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        datos<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        datos<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>payload<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        datos<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span>documentoJson<span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>datos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        StaticJsonDocument<span class="token operator">&lt;</span><span class="token number">200</span><span class="token operator">&gt;</span> documento<span class="token punctuation">;</span>
+        <span class="token function">deserializeJson</span><span class="token punctuation">(</span> documento<span class="token punctuation">,</span> documentoJson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        state1 <span class="token operator">=</span> documento<span class="token punctuation">[</span><span class="token string">&quot;luz1&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        state2 <span class="token operator">=</span> documento<span class="token punctuation">[</span><span class="token string">&quot;luz2&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        state3 <span class="token operator">=</span> documento<span class="token punctuation">[</span><span class="token string">&quot;luz3&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>state1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>state2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>state3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">actualizar</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token class-name">size_t</span> CAPACITY <span class="token operator">=</span> <span class="token function">JSON_OBJECT_SIZE</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Asignamos un tamaño al objeto Json</span>
+    StaticJsonDocument<span class="token operator">&lt;</span>CAPACITY<span class="token operator">&gt;</span> doc<span class="token punctuation">;</span>           <span class="token comment">// Creamos el documento Json</span>
+
+    JsonObject obj<span class="token operator">=</span> doc<span class="token punctuation">.</span>to<span class="token operator">&lt;</span>JsonObject<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// Introducimos los objetos al doc Json</span>
+    obj <span class="token punctuation">[</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> id<span class="token punctuation">;</span>
+    obj <span class="token punctuation">[</span><span class="token string">&quot;luz1&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> state1<span class="token punctuation">;</span>
+    obj <span class="token punctuation">[</span><span class="token string">&quot;luz2&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> state2<span class="token punctuation">;</span>
+    obj <span class="token punctuation">[</span><span class="token string">&quot;luz3&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> state3<span class="token punctuation">;</span>
+    obj <span class="token punctuation">[</span><span class="token string">&quot;temperatura&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+    obj <span class="token punctuation">[</span><span class="token string">&quot;humedad&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> hum<span class="token punctuation">;</span>
+    
+    <span class="token function">serializeJson</span> <span class="token punctuation">(</span>doc<span class="token punctuation">,</span> objetoJson<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// Serializamos el &quot;doc&quot; a variable &quot;char objetoJson&quot;</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Objeto json: &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>objetoJson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">UpdateById</span><span class="token punctuation">(</span> <span class="token number">1</span><span class="token punctuation">,</span> objetoJson<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// ACTUALIZAMOS LA BASE DE DATOS</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ 
+  Serial<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">115200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">//pinMode(LED_BUILTIN, OUTPUT);</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>RELE1PIN<span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>RELE2PIN<span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>RELE3PIN<span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>INTERRUPTOR1PIN<span class="token punctuation">,</span> INPUT_PULLUP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>INTERRUPTOR2PIN<span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>INTERRUPTOR3PIN<span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>DHTPIN<span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  dht<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  WiFi<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span>ssid<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Conectando...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>WiFi<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> WL_CONNECTED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Conexión Wifi establecida, mi dirección IP es: &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>WiFi<span class="token punctuation">.</span><span class="token function">localIP</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>WiFi<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span> WL_CONNECTED<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   <span class="token comment">// Condición si hay conexion WiFi establecida</span>
+  temp <span class="token operator">=</span> dht<span class="token punctuation">.</span><span class="token function">readTemperature</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// Obtenemos la temperatura</span>
+  hum <span class="token operator">=</span> dht<span class="token punctuation">.</span><span class="token function">readHumidity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment">// Obtenemos la humedad</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isnan</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">isnan</span><span class="token punctuation">(</span>hum<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>      <span class="token comment">// Condición si no es un número el valor</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">F</span><span class="token punctuation">(</span><span class="token string">&quot;¡Error en la lectura del sensor DHT!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Enviamos un error</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>                               <span class="token comment">// No devuelve nada</span>
+  <span class="token punctuation">}</span>
+
+    estado_interruptor1_inicial <span class="token operator">=</span> <span class="token function">digitalRead</span><span class="token punctuation">(</span>INTERRUPTOR1PIN<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>estado_interruptor1_inicial <span class="token operator">==</span> HIGH<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>estado_interruptor1_anterior <span class="token operator">==</span> LOW<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>estado_interruptor1_inicial <span class="token operator">==</span>LOW<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>estado_interruptor1_anterior <span class="token operator">==</span> HIGH<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    state1 <span class="token operator">=</span> <span class="token operator">!</span>state1<span class="token punctuation">;</span>
+    <span class="token function">actualizar</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    estado_interruptor1_anterior <span class="token operator">=</span> estado_interruptor1_inicial<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>state1 <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+    <span class="token function">digitalWrite</span><span class="token punctuation">(</span>RELE1PIN<span class="token punctuation">,</span> HIGH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;ENCENDIDO&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">baseDatos</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">digitalWrite</span><span class="token punctuation">(</span>RELE1PIN<span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;APAGADO&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">baseDatos</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+  <span class="token punctuation">}</span> 
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Conexión perdida&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Necesitaremos instalar la biblioteca ArduinoJson</p> <p><a href="https://github.com/bblanchon/ArduinoJson" target="_blank" rel="noopener noreferrer">ArduinoJson<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- extra-class"><pre class="language-text"><code>#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+#include &lt;ArduinoJson.h&gt;
+</code></pre></div><h2 id="asignar-pines"><a href="#asignar-pines" class="header-anchor">#</a> Asignar pines</h2> <p>Asignaremos:</p> <ul><li>Los pines de los relés</li> <li>Los pines de los interruptores</li> <li>Los pines de los sensores que utilicemos</li></ul> <div class="language- extra-class"><pre class="language-text"><code>#define RELE1PIN 19 
+#define RELE2PIN 22 
+#define RELE3PIN 21 
+
+#define INTERRUPTOR1PIN 35
+#define INTERRUPTOR2PIN 34
+#define INTERRUPTOR3PIN 33
+
+#define DHTPIN 23
+#define DHTTYPE DHT11
+</code></pre></div><h2 id="definir-variables"><a href="#definir-variables" class="header-anchor">#</a> Definir variables</h2> <p>Definiremos variables</p> <ul><li>Variables de estado ON - OFF</li> <li>Variables de los sensores utilizados</li> <li>Credenciales para la conexión</li> <li>Un <strong>objeto json</strong> para enviar datos a la base de datos</li> <li>Una variable <strong>String</strong> para obtener los datos de la base de datos</li> <li>Un identificador <strong>id</strong> para el envío de datos</li></ul> <div class="language- extra-class"><pre class="language-text"><code>bool state1;
+bool state2;
+bool state3;
+
+float temp;
+float hum;
+
+const char* ssid = &quot;studio&quot;;
+const char* password =  &quot;88888888&quot;;
+
+char objetoJson[128];
+
+int id = 1;
+
+String payload; 
+</code></pre></div><h2 id="funcion-void-setup"><a href="#funcion-void-setup" class="header-anchor">#</a> Función -&gt; void setup()</h2> <ul><li>Definir baudios</li> <li>Modo del pin entrada/salida</li> <li>Llamada a métodos de los sensores</li> <li>Conexión a la red WiFi</li> <li>IP local de la placa ESP32</li></ul> <div class="language- extra-class"><pre class="language-text"><code>Serial.begin(115200);
+
+  pinMode(RELE1PIN, OUTPUT);
+  pinMode(RELE2PIN, OUTPUT);
+  pinMode(RELE3PIN, OUTPUT);
+
+  pinMode(INTERRUPTOR1PIN, INPUT);
+  pinMode(INTERRUPTOR2PIN, INPUT);
+  pinMode(INTERRUPTOR3PIN, INPUT);
+
+  pinMode(DHTPIN, INPUT);
+
+  dht.begin();
+  
+  WiFi.begin(ssid, password);
+  Serial.print(&quot;Conectando...&quot;);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(&quot;.&quot;);
+  }
+
+  Serial.print(&quot;Conexión Wifi establecida, mi dirección IP es: &quot;);
+  Serial.println(WiFi.localIP());
+</code></pre></div><h2 id="funcion-void-loop"><a href="#funcion-void-loop" class="header-anchor">#</a> Función -&gt; void loop()</h2> <div class="language- extra-class"><pre class="language-text"><code>if ((WiFi.status()== WL_CONNECTED)) {  
+
+  temp = dht.readTemperature();
+  hum = dht.readHumidity();
+    if (isnan(temp) || isnan(hum)) {
+    Serial.println(F(&quot;¡Error en la lectura del sensor DHT!&quot;));
+    return;
+  }
+
+	const size_t CAPACITY = JSON_OBJECT_SIZE(6);
+    StaticJsonDocument&lt;CAPACITY&gt; doc;
+
+    JsonObject obj= doc.to&lt;JsonObject&gt;();
+    obj [&quot;id&quot;] = id;
+    obj [&quot;luz1&quot;] = state1;
+    obj [&quot;luz2&quot;] = state2;
+    obj [&quot;luz3&quot;] = state3;
+    obj [&quot;temperatura&quot;] = temp;
+    obj [&quot;humedad&quot;] = hum;
+    
+    serializeJson (doc, objetoJson);
+    Serial.println(&quot;Objeto json: &quot;);
+    Serial.println(objetoJson);
+
+  UpdateById( 1, objetoJson);  // ACTUALIZAMOS LA BASE DE DATOS
+
+  String datos = GetById(1);
+  
+  char documentoJson[500];
+        datos.replace(&quot; &quot;, &quot;&quot;);
+        datos.replace(&quot;\n&quot;, &quot;&quot;);
+        datos.trim();
+        datos.remove(0,1);
+        datos.remove(payload.length()-1, 1);
+        datos.toCharArray(documentoJson, 500);
+
+        Serial.println(datos);
+        
+        StaticJsonDocument&lt;200&gt; documento;
+        deserializeJson( documento, documentoJson);
+
+        state1 = documento[&quot;luz1&quot;];
+        state2 = documento[&quot;luz2&quot;];
+        state3 = documento[&quot;luz3&quot;];
+
+        Serial.println(state1);
+        Serial.println(state2);
+        Serial.println(state3);
+        
+  if (digitalRead(INTERRUPTOR1PIN) == LOW) {
+    state1 = !state1;
+    digitalWrite(RELE1PIN, state1);
+    } else {
+    state1 = !state1;
+    digitalWrite(RELE1PIN, state1);
+    Serial.println(&quot;Estado del relé es: &quot;);
+    Serial.println(state1);
+  }      
+      
+  if (state1 == true) {
+    digitalWrite(RELE1PIN, HIGH);
+    Serial.println(&quot;encendido1&quot;);
+  } else {
+    digitalWrite(RELE1PIN, LOW);
+    Serial.println(&quot;apagado1&quot;);
+  }
+  
+  if (state2 == true) {
+    digitalWrite(RELE2PIN, HIGH);
+    Serial.println(&quot;encendido2&quot;);
+  } else {
+    digitalWrite(RELE2PIN, LOW);
+    Serial.println(&quot;apagado2&quot;);
+  }
+
+  if (state3 == true) {
+    digitalWrite(RELE3PIN, HIGH);
+    Serial.println(&quot;encendido3&quot;);
+  } else {
+    digitalWrite(RELE3PIN, LOW);
+    Serial.println(&quot;apagado3&quot;);
+  }
+  
+  }  
+   else {
+    Serial.println(&quot;Conexión perdida&quot;);
+  } 
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/domotica/assets/js/app.719536f2.js" defer></script><script src="/domotica/assets/js/2.c5d8ba43.js" defer></script><script src="/domotica/assets/js/8.f9851d9e.js" defer></script>
+  </body>
+</html>
